@@ -1,0 +1,15 @@
+.body-profile{
+    background-color: rgb(255, 255, 255);
+    padding: 1rem .5rem 2rem .5rem;
+    border: 3px solid rgb(204, 208, 210);
+    border-radius: 15px;
+}
+
+.order span{
+    font-size: 1.7rem;
+    color: rgb(0, 43, 112);
+}
+
+.body-container{
+    background-color: aliceblue;
+}
