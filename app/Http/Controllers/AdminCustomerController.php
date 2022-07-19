@@ -10,42 +10,30 @@ class AdminCustomerController extends Controller
     public function index(Request $request){
         $search = $request->search;
         if($search != ""){
-            $customer = Users::where('user_name','like',"%$search%")->get();
+            $customerOn = Users::where('user_name','like',"%$search%")
+            ->where('active','1')->get();
+            $customerOff = Users::where('user_name','like',"%$search%")
+            ->where('active','0')->get();
         }else{
-            $customer = Users::all();
+            $customerOn = Users::where('active','1')->get();
+            $customerOff = Users::where('active','0')->get();
         }
 
-        return view('admin/customer',['customer' => $customer]);
+        return view('admin/customer',['customerOn' => $customerOn,'customerOff' => $customerOff]);
     }
 
-    public function updateCustomer(Request $request){
-        $user = Users::where('user_id',$request->id)->get();
-        return view('admin.control.updateCustomer')->with('user',$user);
+    public function lock(Request $request){
+        $lock = Users::find($request->id);
+        $lock->active = 0;
+        $lock->save();
+        return redirect()->route('admin.customer');
     }
 
-    public function updateCustomerPost(Request $request){
-        $validated = $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'pass' => 'required|min:6',
-            'phone' => 'required|min:9|numeric',
-            'address' => 'required'
-        ],[
-            'required' => ':attribute must be required',
-            'min' => ':attribute must great than :min'
-        ]);
-
-        $user = Users::find($request->id);
-
-        $user->user_name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->pass;
-        $user->phone = $request->phone;
-        $user->address = $request->address;
-        $user->active = $request->active;
-        $user->save();
-
-        return redirect()->route('admin.customer')->with('msg','Update Successfully');
+    public function unlock(Request $request){
+        $unlock = Users::find($request->id);
+        $unlock->active = 1;
+        $unlock->save();
+        return redirect()->route('admin.customer');
     }
 
     public function deleteCustomer(Request $request){

@@ -72,8 +72,30 @@
     border-radius: 2%;
 }
 
+.msg-warn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background-color: rgba(241, 188, 188, 0.689);
+    color: rgb(161, 16, 16);
+    height: 2.5rem;
+    width: 40%;
+    font-size: 1.3rem;
+    border-radius: 2%;
+}
+
+.confirm{
+    margin-top: 3rem;
+    color: rgb(27, 191, 27);
+}
+
+.unconfirm{
+    color: rgb(243, 50, 50);
+}
+
 .table-content{
-    margin-top: 2rem;
+    margin-top: .5rem;
 }
 
 .container th h1 {
@@ -97,7 +119,7 @@
     width: 100%;
     margin: 0 auto;
     display: table;
-    padding: 0 0 8em 0;
+    padding: 0 0 4em 0;
 }
 
 .container td,
@@ -127,23 +149,23 @@ tbody button{
     text-decoration: none;
 }
 
-tbody a:nth-child(1) button{
+.btn-confirm button{
     color: white;
     background-color: #09ad1c;
 }
 
-tbody a:nth-child(2) button{
+.btn-cancel button{
     color: white;
     background-color: #dc3636;
 }
 
-tbody a:nth-child(1) button:hover{
+.btn-confirm button:hover{
     border:1px solid #09ad1c;
     color: #09ad1c;
     background-color: #ffffff;
 }
 
-tbody a:nth-child(2) button:hover{
+.btn-cancel button:hover{
     border: 1px solid #dc3636;
     color: #dc3636;
     background-color: #ffffff;
@@ -173,7 +195,7 @@ tbody a:nth-child(2) button:hover{
 
 
 @media only screen and (max-width: 1200px){
-   
+
 }
 
 @media only screen and (max-width: 960px) {
@@ -185,7 +207,7 @@ tbody a:nth-child(2) button:hover{
         display: block;
         width: 100%;
     }
-    
+
     table tr{
         margin-bottom: 2rem;
     }
@@ -214,6 +236,6 @@ tbody a:nth-child(2) button:hover{
 }
 
 @media only screen and (max-width:560px) {
-   
+
 }
 

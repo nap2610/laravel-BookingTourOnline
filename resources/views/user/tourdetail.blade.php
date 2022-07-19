@@ -1,8 +1,13 @@
 @extends('userlayout')
 
 @section('content')
+
+    <div class="container">
+        <a href="{{url('user/tour')}}"><button class="btn btn-lg btn-info mt-3"> << Return Tour</button></a>
+    </div>
+
     @foreach ($data as $d)
-        <div class="container mt-5 mb-5 p-4 tour-info">
+        <div class="container mt-2 mb-5 p-4 tour-info">
 
             <div class="row mb-3">
                 <div class="col-sm-6">
@@ -129,13 +134,15 @@
                             <h6> <strong>{{ $f->subject }}: </strong> {{ $f->content }}</h6>
                         </div>
 
-                        <div class="div mt-2 ml-5">
-                            <strong class="text-danger">Staff </strong><small class="ml-2">
-                                {{ date('d-m-Y H:i', $reply) }}</small>
-                            <div class="row">
-                                <h6 class="mt-1"> {{ $f->reply }} </h6>
-                            </div>
+                       @if ($f->reply != "")
+                       <div class="div mt-2 ml-5">
+                        <strong class="text-danger">Staff </strong><small class="ml-2">
+                            {{ date('d-m-Y H:i', $reply) }}</small>
+                        <div class="row">
+                            <h6 class="mt-1"> {{ $f->reply }} </h6>
                         </div>
+                    </div>
+                       @endif
 
                     </div>
                     <div class="col-sm-1"></div>
@@ -149,11 +156,15 @@
                     <div class="col-sm-1"></div>
                     <div class="col-sm-5">
                         <strong class="text-primary">{{ session('userName') }} (me)</strong>
-                        <form action="{{url('user/tour/detailtour/feedback')}}">
-                            <strong>Title</strong> <input class="form-control" type="text" name="subject" >
-                            <strong>Feedback</strong> <textarea rows="4" class="form-control" type="text" name="content" ></textarea>
-                            <button class="btn btn-danger mt-2">POST</button>
-                        </form>
+                     @foreach ($data as $d)
+                     <form name="form" action="{{url('user/tour/detailtour/feedback')}}" onsubmit="return validateForm()">
+                        <input type="hidden" value="{{session('id')}}" name="user_id">
+                        <input type="hidden" value="{{$d->schedule_id}}" name="schedule_id">
+                        <strong>Title</strong> <input class="form-control" type="text" name="subject" >
+                        <strong>Feedback</strong> <textarea rows="4" class="form-control" type="text" name="content" ></textarea>
+                        <button class="btn btn-danger mt-2">POST</button>
+                    </form>
+                     @endforeach
                     </div>
                     <div class="col-sm-6"></div>
                 </div>
@@ -226,4 +237,17 @@
 @endsection
 
 @section('linkjs')
+@endsection
+
+@section('page-script')
+    <script>
+        function validateForm() {
+  let x = document.forms["form"]["subject"].value;
+  let y = document.forms["form"]["content"].value;
+  if (x == "" || y == "") {
+    alert("Title and Content must be filled out");
+    return false;
+  }
+}
+    </script>
 @endsection

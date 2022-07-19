@@ -1,14 +1,14 @@
 @extends('adminlayout')
 
 @section('content')
-    
+
 <div class="content">
     <div class="one">
         <div class="search-block">
             <span>Search Tour for here</span>
-            <form action="">
-                From <input type="date" name="from">
-                To <input type="date" name="to">
+            <form action="schedule" >
+                From <input type="date" name="from" id="from">
+                To <input type="date" name="to" id="to">
                 <button>Search</i></button>
             </form>
         </div>
@@ -25,6 +25,12 @@
     @if (session('msg'))
     <div class="msg-block">
         <span class="msg">{{ session('msg') }}</span>
+    </div>
+    @endif
+
+    @if (session('msg-warn'))
+    <div class="msg-block">
+        <span class="msg-warn">{{ session('msg-warn') }}</span>
     </div>
     @endif
 
@@ -51,9 +57,6 @@
                         <h1>Tour guide id</h1>
                     </th>
                     <th>
-                        <h1>Status</h1>
-                    </th>
-                    <th>
                         <h1>Control</h1>
                     </th>
 
@@ -62,17 +65,16 @@
             <tbody>
                 @foreach ($schedule as $sche)
                 <tr>
-                    <td data-label="Name">{{$sche->schedule_id}}</td>
-                    <td data-label="Name">{{$sche->tour_id}}</td>
-                    <td data-label="Duration">{{$sche->tour_code}}</td>
+                    <td data-label="ID">{{$sche->schedule_id}}</td>
+                    <td data-label="Tour id">{{$sche->tour->tour_name}}</td>
+                    <td data-label="Tour code">{{$sche->tour_code}}</td>
                     @php
                     $start=strtotime($sche->date_start);
                     $end=strtotime($sche->date_end);
                     @endphp
-                    <td data-label="Code">{{date("d-m-Y H:i",$start)}}</td>
-                    <td data-label="Price">{{date("d-m-Y H:i",$end)}}</td>
-                    <td data-label="Price">{{$sche->tour_guide_id}}</td>
-                    <td data-label="Price">{{$sche->status}}</td>
+                    <td data-label="date start">{{date("d-m-Y H:i",$start)}}</td>
+                    <td data-label="date end">{{date("d-m-Y H:i",$end)}}</td>
+                    <td data-label="Guide">{{$sche->tour_guide->name}}</td>
                     <td data-label="Control">
                         <div>
                             <a href="control/updateSchedule/{{$sche->schedule_id}}"><button>Update</button></a>
@@ -98,6 +100,10 @@
 @endsection
 
 @section('linkjs')
+
+@endsection
+
+@section('page-script')
 
 @endsection
 

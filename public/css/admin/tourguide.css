@@ -78,6 +78,38 @@
     border-radius: 2%;
 }
 
+.on{
+    margin-top: 3rem;
+    color: rgb(27, 191, 27);
+}
+
+.off{
+    color: rgb(243, 50, 50);
+}
+
+.btn-on button{
+    color: white;
+    background-color: #09ad1c;
+}
+
+.btn-off button{
+    color: white;
+    background-color: #dc3636;
+}
+
+.btn-on button:hover{
+    border:1px solid #09ad1c;
+    color: #09ad1c;
+    background-color: #ffffff;
+}
+
+.btn-off button:hover{
+    border: 1px solid #dc3636;
+    color: #dc3636;
+    background-color: #ffffff;
+}
+
+
 .table-content{
     margin-top: 2rem;
 }
@@ -131,28 +163,7 @@ tbody button{
     border-radius: 2px;
     transition: .2s ease;
     text-decoration: none;
-}
-
-tbody a:nth-child(1) button{
-    color: white;
-    background-color: #09ad1c;
-}
-
-tbody a:nth-child(2) button{
-    color: white;
-    background-color: #dc3636;
-}
-
-tbody a:nth-child(1) button:hover{
-    border:1px solid #09ad1c;
-    color: #09ad1c;
-    background-color: #ffffff;
-}
-
-tbody a:nth-child(2) button:hover{
-    border: 1px solid #dc3636;
-    color: #dc3636;
-    background-color: #ffffff;
+    padding: .2rem;
 }
 
 .container thead {
@@ -179,7 +190,7 @@ tbody a:nth-child(2) button:hover{
 
 
 @media only screen and (max-width: 1200px){
-   
+
 }
 
 @media only screen and (max-width: 960px) {
@@ -191,7 +202,7 @@ tbody a:nth-child(2) button:hover{
         display: block;
         width: 100%;
     }
-    
+
     table tr{
         margin-bottom: 2rem;
     }
@@ -220,6 +231,6 @@ tbody a:nth-child(2) button:hover{
 }
 
 @media only screen and (max-width:560px) {
-   
+
 }
 

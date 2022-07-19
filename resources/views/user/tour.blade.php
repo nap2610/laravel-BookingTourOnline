@@ -12,7 +12,7 @@
                 <div class="row mb-3">
                     <div class="col-sm-8">
                         <select class="form-select" form="start" name="start">
-                            <option>Select Point</option>
+                            <option  hidden> Select Point</option>
                             @foreach ($start as $s)
                                 <option value="{{ $s->location_start }}">{{ $s->location_start }}</option>
                             @endforeach
@@ -30,7 +30,7 @@
 
                     <div class="col-sm-8">
                         <select class="form-select" form="end" name="end">
-                            <option>Select Destination</option>
+                            <option hidden>Select Destination</option>
                             @foreach ($end as $e)
                                 <option value="{{ $e->location_name }}">{{ $e->location_name }}</option> </a>
                             @endforeach
@@ -82,7 +82,6 @@
 
                 <div class="row mb-3">
                     <form class="input-group mb-3" action="{{ url('user/tour') }}">
-
                         <input type="date" class="form-control" placeholder="Some text" name="date" id="date">
                         <button class="btn btn-primary">Search</button>
                     </form>
@@ -90,7 +89,7 @@
 
                 <div class="row mb-2"> <strong>PRICE RANGE</strong> </div>
                 <div class="row mb-5">
-                    <form class="input-group" action="{{ url('user/tour') }}" id="priceRange" onsubmit="validate()">
+                    <form class="input-group" action="{{ url('user/tour') }}" id="priceRange" onsubmit="return validate()">
                         <input type="number" min="0" id="min" class="form-control" placeholder="Min price"
                             name="min">
                         <input type="number" min="0" id="max" class="form-control" placeholder="Max price"
@@ -106,7 +105,7 @@
                     </div>
                     <div class="col-sm-3">
                         <select class="form-select" form="price" name="price">
-                            <option value="asc">--- SELECT ---</option>
+                            <option hidden>--- SELECT ---</option>
                             <option value="asc">PRICE FROM LOW -> HIGH</option>
                             <option value="desc">PRICE FROM HIGH -> LOW</option>
                         </select>
@@ -132,9 +131,8 @@
                                         @php
                                             $date = strtotime($d->date_start);
                                         @endphp
-                                        <p style="font-size: 14px">{{ date('d-m-Y', $date) }} - {{ $d->duration }}N -
-                                            Giờ
-                                            đi: {{ date('H:i', $date) }}</p>
+                                        <p style="font-size: 14px">{{ date('d-m-Y', $date) }} - {{ $d->duration }}N
+
                                     </div>
                                     <div class="row">
                                         <strong>

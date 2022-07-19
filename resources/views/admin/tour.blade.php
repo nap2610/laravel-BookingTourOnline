@@ -1,9 +1,9 @@
 @extends('adminlayout')
 
 @section('content')
-    
+
 <div class="content">
-   
+
     <div class="one">
         <div class="search-block">
             <span>Search Tour for here</span>
@@ -24,8 +24,8 @@
         <span class="msg">{{ session('msg') }}</span>
     </div>
     @endif
-   
-    
+
+
     <div class="table-content">
         <table class="container">
             <thead>
@@ -53,10 +53,10 @@
             <tbody>
                 @foreach ($tour as $t)
                 <tr>
-                    <td data-label="Name">{{$t->tour_id}}</td>
+                    <td data-label="ID">{{$t->tour_id}}</td>
                     <td data-label="Name">{{$t->tour_name}}</td>
                     <td data-label="Duration">{{$t->duration}}</td>
-                    <td data-label="Code">{{$t->location_start}}</td>
+                    <td data-label="Place start">{{$t->location_start}}</td>
                     <td data-label="Price">{{$t->price1}}$</td>
                     <td data-label="Control">
                     <div>

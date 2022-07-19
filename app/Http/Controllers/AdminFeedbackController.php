@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 class AdminFeedbackController extends Controller
 {
@@ -32,30 +33,19 @@ class AdminFeedbackController extends Controller
 
     public function updateFeedbackPost(Request $request){
         $validated = $request->validate([
-            'date' => 'required|date',
-            'subject' => 'required',
-            'content' => 'required',
-            'reply' => 'required',
-            'replydate' => 'required|date'   
+            'reply' => 'required'
         ]);
 
         $feedback = Feedback::find($request->id);
 
-        $feedback->feedback_date = $request->date;
-        $feedback->subject = $request->subject;
-        $feedback->content = $request->content;
+        $current = new Carbon();
+
         $feedback->reply = $request->reply;
-        $feedback->reply_date = $request->replydate;
+        $feedback->reply_date = $current;
 
         $feedback->save();
 
         return redirect()->route('admin.feedback')->with('msg','Update successfully !!!');
 
-    }
-
-    public function deleteFeedback(Request $request){
-        $feedback = Feedback::find($request->id);
-        $feedback->delete();
-        return redirect()->route('admin.feedback')->with('msg','Delete successfully !!!');
     }
 }

@@ -15,16 +15,14 @@ class AdminScheduleController extends Controller
                 'from' => 'required|date',
                 'to' => 'required|date'
             ]);
-            $current = new Carbon();
-            if($request->from > $current && $request->to > $request->from){
+
+            if( $request->to > $request->from){
                 $schedule = Schedule::where('date_start','>=',$request->from)->where('date_end','<=',$request->to)->get();
             }else{
-                $a = $current->format('d-m-Y');
-                $msg = 'Date From must great than '.$a.' and Date To must great than Date From'; 
-                $schedule = Schedule::all();
-                return view('admin/schedule',['schedule' => $schedule])->with('msg',$msg);
+                $msg = 'Date To must great than Date From';
+                return redirect()->route('admin.schedule')->with('msg-warn',$msg);
             }
-            
+
         }else{
             $schedule = Schedule::all();
         }
@@ -40,12 +38,11 @@ class AdminScheduleController extends Controller
 
     public function insertSchedulePost(Request $request){
         $validate = $request->validate([
-            'tour_id' => 'required|exists:tour,tour_id',
+            'tour_id' => 'required',
             'date_start' => 'required|date',
             'date_end' => 'required|date',
-            'status' => 'required',
-            'tour_guide_id' => 'required|exists:tour_guide,tour_guide_id',
-            'tour_code' => 'required'
+            'tour_guide_id' => 'required',
+            'tour_code' => 'required|unique:schedule,tour_code'
          ],[
             'required' => ':attribute is required'
          ]);
@@ -54,7 +51,6 @@ class AdminScheduleController extends Controller
          $sche->tour_id = $request->tour_id;
          $sche->date_start = $request->date_start;
          $sche->date_end = $request->date_end;
-         $sche->status = $request->status;
          $sche->tour_guide_id = $request->tour_guide_id;
          $sche->tour_code = $request->tour_code;
          $sche->save();
@@ -64,17 +60,18 @@ class AdminScheduleController extends Controller
 
     public function updateSchedule(Request $request){
         $schedule = Schedule::where('schedule_id',$request->id)->get();
-        return view('admin/control/updateSchedule')->with('schedule',$schedule);
+        $guide = TourGuide::all();
+        $tour = Tour::all();
+        return view('admin/control/updateSchedule',['guide'=>$guide,'tour'=>$tour,'schedule'=>$schedule]);
     }
 
     public function updateSchedulePost(Request $request){
         $validate = $request->validate([
-            'tour_id' => 'required|exists:tour,tour_id',
+            'tour_id' => 'required',
             'date_start' => 'required|date',
             'date_end' => 'required|date',
-            'status' => 'required',
-            'tour_guide_id' => 'required|exists:tour_guide,tour_guide_id',
-            'tour_code' => 'required'
+            'tour_guide_id' => 'required',
+            'tour_code' => 'required|unique:schedule,tour_code'
          ],[
             'required' => ':attribute is required'
          ]);
@@ -83,7 +80,6 @@ class AdminScheduleController extends Controller
          $sche->tour_id = $request->tour_id;
          $sche->date_start = $request->date_start;
          $sche->date_end = $request->date_end;
-         $sche->status = $request->status;
          $sche->tour_guide_id = $request->tour_guide_id;
          $sche->tour_code = $request->tour_code;
          $sche->save();

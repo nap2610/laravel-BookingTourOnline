@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Location;
 use Illuminate\Support\Facades\DB;
 use App\Models\Tour;
 use Illuminate\Http\Request;
@@ -8,7 +10,7 @@ use Illuminate\Http\Request;
 class AdminTourController extends Controller
 {
     public function index(Request $request){
-     
+
         $search = $request->search;
         if($search != ""){
             $tour = Tour::where('tour_name','like',"%$search%")->get();
@@ -20,7 +22,8 @@ class AdminTourController extends Controller
     }
 
     public function insertTour(){
-        return view('admin.control.insertTour');
+        $place = Location::all();
+        return view('admin.control.insertTour',['place'=>$place]);
     }
 
     public function insertTourPost(Request $request){
@@ -28,7 +31,7 @@ class AdminTourController extends Controller
             'name' => 'required|unique:tour,tour_name',
             'location' => 'required',
             'transport' => 'required',
-            'duration' => 'required|numeric|min:1|max:10',
+            'duration' => 'required|numeric|min:1|max:30',
             'price1' => 'required|numeric',
             'price2' => 'required|numeric',
             'price3' => 'required|numeric',
@@ -40,13 +43,12 @@ class AdminTourController extends Controller
             'img5' => 'nullable',
             'detail' => 'required',
             'visit' => 'required',
-            'region' => 'required|max:1',
+            'region' => 'required',
             'place' => 'required'
          ],[
             'required' => ':attribute is required',
-            'region.max' => ':attribute max is :max and must be "B" or "T" or "N"',
             'duration.min' => ':attribute min is :min',
-            'duration.max' => ':attribute min is :max'
+            'duration.max' => ':attribute max is :max'
          ]);
 
          if($request->hasFile('img1')){
@@ -88,7 +90,7 @@ class AdminTourController extends Controller
         }else{
             $imageName5 = null;
         }
-         
+
          $tour = New Tour();
          $tour->tour_name = $request->name;
          $tour->location_start = $request->location;
@@ -115,7 +117,9 @@ class AdminTourController extends Controller
 
     public function updateTour(Request $request){
         $tour = Tour::where('tour_id',$request->id)->get();
-        return view('admin/control/updateTour')->with('tour',$tour);
+        $place = Location::all();
+        $tours = Tour::all();
+        return view('admin/control/updateTour',['tour'=>$tour,'place'=>$place,'tours'=>$tours]);
     }
 
     public function updateTourPost(Request $request){
@@ -123,7 +127,7 @@ class AdminTourController extends Controller
             'name' => 'required',
             'location' => 'required',
             'transport' => 'required',
-            'duration' => 'required|numeric|min:1|max:10',
+            'duration' => 'required|numeric|min:1|max:30',
             'price1' => 'required|numeric',
             'price2' => 'required|numeric',
             'price3' => 'required|numeric',
@@ -135,13 +139,12 @@ class AdminTourController extends Controller
             'img5' => 'nullable',
             'detail' => 'required',
             'visit' => 'required',
-            'region' => 'required|max:1',
+            'region' => 'required',
             'place' => 'required'
          ],[
             'required' => ':attribute is required',
-            'region.max' => ':attribute max is :max and must be "B" or "T" or "N"',
             'duration.min' => ':attribute min is :min',
-            'duration.max' => ':attribute min is :max'
+            'duration.max' => ':attribute max is :max'
          ]);
 
          if($request->hasFile('img1')){
@@ -215,5 +218,5 @@ class AdminTourController extends Controller
     }
 
 
-    
+
 }

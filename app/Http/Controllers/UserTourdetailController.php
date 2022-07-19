@@ -7,7 +7,7 @@ use App\Models\Tour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Schedule;
-
+use Carbon\Carbon;
 
 class UserTourdetailController extends Controller
 {
@@ -28,6 +28,14 @@ class UserTourdetailController extends Controller
     }
 
     public function feedback(Request $request){
-
+        $current = new Carbon();
+        $feedback =  new Feedback();
+        $feedback->feedback_date = $current;
+        $feedback->subject = $request->subject;
+        $feedback->content = $request->content;
+        $feedback->user_id = $request->user_id;
+        $feedback->schedule_id = $request->schedule_id;
+        $feedback->save();
+        return back();
     }
 }

@@ -18,7 +18,7 @@
             </h4>
         </div>
 
-        
+
         <form action="../updateFeedbackPost">
             @foreach ($feedback as $f)
             <div class="mb-3 mt-3">
@@ -35,36 +35,20 @@
               </div>
             <div class="mb-3">
                 <label>Date</label>
-                <input type="text" class="form-control" placeholder="Enter date" name="date" value="{{$f->feedback_date}}" >
-                @error('date')
-                <span style="color: red">{{$message}}</span>
-            @enderror
+                <input type="text" class="form-control" placeholder="Enter date" name="date" value="{{$f->feedback_date}}" readonly>
               </div>
             <div class="mb-3">
                 <label>Subject</label>
-                <input type="text" class="form-control" placeholder="Enter subject" name="subject" value="{{$f->subject}}">
-                @error('subject')
-                    <span style="color: red">{{$message}}</span>
-                @enderror
+                <input type="text" class="form-control" placeholder="Enter subject" name="subject" value="{{$f->subject}}" readonly>
               </div>
               <div class="mb-3">
                 <label>Content</label>
-                <textarea type="text" class="form-control" placeholder="Enter content" name="content" value="">{{$f->content}}</textarea>
-                @error('content')
-                    <span style="color: red">{{$message}}</span>
-                @enderror
+                <textarea type="text" class="form-control" placeholder="Enter content" name="content" value=""  readonly>{{$f->content}}</textarea>
               </div>
               <div class="mb-3">
                 <label>reply</label>
                 <textarea type="text" class="form-control" placeholder="Enter reply" name="reply" value="">{{$f->reply}}</textarea>
                 @error('reply')
-                    <span style="color: red">{{$message}}</span>
-                @enderror
-              </div>
-              <div class="mb-3">
-                <label>Reply date</label>
-                <input type="text" class="form-control" placeholder="Enter replydate" name="replydate" value="{{$f->reply_date}}">
-                @error('replydate')
                     <span style="color: red">{{$message}}</span>
                 @enderror
               </div>
@@ -74,8 +58,8 @@
               <br>
               <br>
         </form>
-        
+
     </div>
-    
+
 </body>
 </html>

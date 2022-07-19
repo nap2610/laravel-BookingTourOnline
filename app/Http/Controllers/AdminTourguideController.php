@@ -11,73 +11,33 @@ class AdminTourguideController extends Controller
     public function index(Request $request){
         $search = $request->search;
         if($search != ""){
-            $guide = TourGuide::where('name','like',"%$search%")->get();
+            $guideOn = TourGuide::where('name','like',"%$search%")
+            ->where('active',1)->get();
+            $guideOff = TourGuide::where('name','like',"%$search%")
+            ->where('active',0)->get();
         }else{
-            $guide = TourGuide::all();
+            $guideOn = TourGuide::where('active',1)->get();
+            $guideOff = TourGuide::where('active',0)->get();
         }
 
-        return view('admin/tour_guide',['guide' => $guide]);
+        return view('admin/tour_guide',['guideOn' => $guideOn,'guideOff'=>$guideOff]);
     }
 
-    public function insertGuide(){
-        return view('admin.control.insertGuide');
+    public function lock(Request $request){
+        $lock = TourGuide::find($request->id);
+        $lock->active = 0;
+        $lock->save();
+
+        return redirect()->route('admin.tourguide');
     }
 
-    public function insertGuidePost(Request $request){
-        $validated = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:tour_guide,email',
-            'gender' => 'required',
-            'phone' => 'required|numeric|min:9'      
-        ],[
-            'required' => ':attribute must be required',
-            'min' => ':attribute must great than :min'
-        ]);
+    public function unlock(Request $request){
+        $unlock = TourGuide::find($request->id);
+        $unlock->active = 1;
+        $unlock->save();
 
-        $guide = new TourGuide();
-
-        $guide->name = $request->name;
-        $guide->email = $request->email;
-        $guide->gender = $request->gender;
-        $guide->phone = $request->phone;
-
-        $guide->save();
-
-        return redirect()->route('admin.tourguide')->with('msg','Insert successfully');
-
+        return redirect()->route('admin.tourguide');
     }
 
-    public function updateGuide(Request $request){
-        $guide = TourGuide::where('tour_guide_id',$request->id)->get();
-        return view('admin.control.updateGuide')->with('guide',$guide);
-    }
 
-    public function updateGuidePost(Request $request){
-        $validated = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'gender' => 'required',
-            'phone' => 'required|numeric|min:9'      
-        ],[
-            'required' => ':attribute must be required',
-            'min' => ':attribute must great than :min'
-        ]);
-
-        $guide = TourGuide::find($request->id);
-
-        $guide->name = $request->name;
-        $guide->email = $request->email;
-        $guide->gender = $request->gender;
-        $guide->phone = $request->phone;
-
-        $guide->save();
-
-        return redirect()->route('admin.tourguide')->with('msg','Update successfully');
-    }
-
-    public function deleteGuide(Request $request){
-        $guide = TourGuide::find($request->id);
-        $guide->delete();
-        return redirect()->route('admin.tourguide')->with('msg','Delete successfully');
-    }
 }

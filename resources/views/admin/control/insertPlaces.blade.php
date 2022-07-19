@@ -12,13 +12,15 @@
 
     <div class="container mt-5 mb-5">
 
-        <div>
+        <a class="" href="{{url('admin/places')}}"> <button class="btn btn-lg btn-info"> << Return </button> </a>
+
+        <div class="mt-4">
             <h4 class="text-primary">
                 Insert Place
             </h4>
         </div>
 
-        
+
         <form action="insertPlacesPost" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="mb-3 mt-3">
@@ -40,8 +42,8 @@
               <br>
               <br>
         </form>
-        
+
     </div>
-    
+
 </body>
 </html>

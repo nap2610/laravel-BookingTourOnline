@@ -75,9 +75,8 @@ Route::prefix('/admin')->name('admin.')->group(function(){
         Route::get('updateSchedulePost',[AdminScheduleController::class,'updateSchedulePost'])->name('updateSchedule');
         Route::get('deleteSchedule/{id}',[AdminScheduleController::class,'deleteSchedule'])->name('deleteSchedule');
 
-         Route::get('updateOrder/{id}',[AdminOrderController::class,'updateOrder']);
-        Route::get('updateOrderPost',[AdminOrderController::class,'updateOrderPost']);
-        Route::get('deleteOrder/{id}',[AdminOrderController::class,'deleteOrder']);
+        Route::get('changeOn/{id}',[AdminOrderController::class,'changeOn']);
+        Route::get('changeOff/{id}',[AdminOrderController::class,'changeOff']);
 
         Route::get('insertNews',[AdminNewsController::class,'insertNews']);
         Route::post('insertNewsPost',[AdminNewsController::class,'insertNewsPost']);
@@ -85,13 +84,12 @@ Route::prefix('/admin')->name('admin.')->group(function(){
         Route::post('updateNewsPost',[AdminNewsController::class,'updateNewsPost']);
         Route::get('deleteNews/{id}',[AdminNewsController::class,'deleteNews']);
 
-        Route::get('updateCustomer/{id}',[AdminCustomerController::class,'updateCustomer']);
-        Route::get('updateCustomerPost',[AdminCustomerController::class,'updateCustomerPost']);
+        Route::get('lock/{id}',[AdminCustomerController::class,'lock']);
+        Route::get('unlock/{id}',[AdminCustomerController::class,'unlock']);
         Route::get('deleteCustomer/{id}',[AdminCustomerController::class,'deleteCustomer']);
 
-        Route::get('updateStaff/{id}',[AdminStaffController::class,'updateStaff']);
-        Route::get('updateStaffPost',[AdminStaffController::class,'updateStaffPost']);
-        Route::get('deleteStaff/{id}',[AdminStaffController::class,'deleteStaff']);
+        Route::get('lockStaff/{id}',[AdminStaffController::class,'lock']);
+        Route::get('unlockStaff/{id}',[AdminStaffController::class,'unlock']);
 
         Route::get('insertPlaces',[AdminPlacesController::class,'insertPlaces']);
         Route::post('insertPlacesPost',[AdminPlacesController::class,'insertPlacesPost']);
@@ -101,13 +99,9 @@ Route::prefix('/admin')->name('admin.')->group(function(){
 
         Route::get('updateFeedback/{id}',[AdminFeedbackController::class,'updateFeedback']);
         Route::get('updateFeedbackPost',[AdminFeedbackController::class,'updateFeedbackPost']);
-        Route::get('deleteFeedback/{id}',[AdminFeedbackController::class,'deleteFeedback']);
 
-        Route::get('insertGuide',[AdminTourguideController::class,'insertGuide']);
-        Route::get('insertGuidePost',[AdminTourguideController::class,'insertGuidePost']);
-        Route::get('updateGuide/{id}',[AdminTourguideController::class,'updateGuide']);
-        Route::get('updateGuidePost',[AdminTourguideController::class,'updateGuidePost']);
-        Route::get('deleteGuide/{id}',[AdminTourguideController::class,'deleteGuide']);
+       Route::get('lockGuide/{id}',[AdminTourguideController::class,'lock']);
+       Route::get('unlockGuide/{id}',[AdminTourguideController::class,'unlock']);
 
     });
 

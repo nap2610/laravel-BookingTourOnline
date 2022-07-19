@@ -1,16 +1,6 @@
 @extends('adminlayout')
 
 @section('content')
-    
-<div class="first">
-    <div class="welcome">
-        <h3>Welcome back my friend !!</h3>
-    </div>
-    <div class="signup">
-        <a href="signup">sign up</a>
-    </div>
-</div>
-
 
     @if (session('msg'))
         <div class="msg">
@@ -65,7 +55,7 @@
         <div class="card">
             <div class="card-header">
                 <h2>Rencent Order Tour</h2>
-                <button>See all <span class="fa-solid fa-arrow-right"></span></button>
+                <a href="{{url('admin/order')}}"><button>See all <span class="fa-solid fa-arrow-right"></span></button></a>
             </div>
 
             <div class="card-body">
@@ -86,9 +76,10 @@
                                 @php
                                     $d=strtotime($or->date_book);
                                 @endphp
-                                <td>{{date("d-m-Y H:i", $d)}}</td>
+                                <td>{{date("d-m-Y", $d)}}</td>
                                 <td>{{$or->amount}}$</td>
                                 <td>{{$or->email}}</td>
+
                             </tr>
                             @endforeach
                         </tbody>
@@ -102,12 +93,12 @@
         <div class="card">
             <div class="card-header">
                 <h3>News customer</h3>
-                <button>See all <span class="fa-solid fa-arrow-right"></span></button>
+                <a href="{{url('admin/customer')}}"><button>See all <span class="fa-solid fa-arrow-right"></span></button></a>
             </div>
-            
+
             @foreach ($customer as $cus)
                 <div class="card-body">
-                    <div class="customer">  
+                    <div class="customer">
                         <div class="info">
                             <div>
                                 <h5>{{$cus->user_name}}</h5>
@@ -121,7 +112,7 @@
                     </div>
                 </div>
             @endforeach
-            
+
         </div>
     </div>
 </div>

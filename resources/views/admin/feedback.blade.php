@@ -1,7 +1,7 @@
 @extends('adminlayout')
 
 @section('content')
-    
+
 <div class="content">
     <div class="one">
         <div class="search-block">
@@ -30,6 +30,8 @@
     </div>
     @endif
 
+
+
     <div class="table-content">
         <table class="container">
             <thead>
@@ -44,10 +46,10 @@
                         <h1>Date</h1>
                     </th>
                     <th>
-                        <h1>Date reply</h1>
+                        <h1>Subject</h1>
                     </th>
                     <th>
-                        <h1>Subject</h1>
+                        <h1>Reply</h1>
                     </th>
                     <th>
                         <h1>Control</h1>
@@ -57,15 +59,14 @@
             <tbody>
                 @foreach ($feed as $f)
                 <tr>
-                    <td data-label="ID">{{$f->user_id}}</td>
+                    <td data-label="ID">{{$f->user->user_name}}</td>
                     <td data-label="ID">{{$f->schedule_id}}</td>
                     <td data-label="ID">{{$f->feedback_date}}</td>
-                    <td data-label="ID">{{$f->reply_date}}</td>
                     <td data-label="ID">{{$f->subject}}</td>
+                    <td data-label="ID">{{$f->reply}}</td>
                     <td data-label="Control">
                         <div>
-                            <a href="control/updateFeedback/{{$f->feedback_id}}"><button>Update</button></a>
-                            <a href="control/deleteFeedback/{{$f->feedback_id}}"><button>Delete</button></a>
+                            <a href="control/updateFeedback/{{$f->feedback_id}}"><button>Reply</button></a>
                         </div>
                     </td>
                 </tr>

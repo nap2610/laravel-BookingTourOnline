@@ -12,7 +12,9 @@
 
     <div class="container mt-5 mb-5">
 
-        <div>
+        <a class="" href="{{url('admin/news')}}"> <button class="btn btn-lg btn-info"> << Return </button> </a>
+
+        <div class="mt-4">
             <h4 class="text-primary">
                 Update News
             </h4>
@@ -88,6 +90,6 @@
         </form>
         @endforeach
     </div>
-    
+
 </body>
 </html>
