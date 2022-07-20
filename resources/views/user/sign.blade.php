@@ -11,6 +11,9 @@
       @if ($errors->any())
       <small style="color: red"> Email or password is wrong, please login again !</small>
       @endif
+      @if(session('msg'))
+      <small style="color: red"> {{session('msg')}} </small>
+      @endif
       <a href="#">Forgot your password?</a>
       <button>Sign In</button>
     </form>
@@ -37,5 +40,5 @@
 @endsection
 
 @section('linkjs')
-   
+
 @endsection

@@ -8,10 +8,11 @@
     <title>@yield('title')</title>
 
     <link rel="stylesheet" href="@yield('linkcss')">
+    <link rel="stylesheet" href="{{asset('css/user/header.css')}}">
     <script src="https://kit.fontawesome.com/0426dedeb4.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
+
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'>
 
@@ -45,23 +46,22 @@
                 <a class="nav-link" href="{{url('user/contact')}}">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="sign"><i class="fa-solid fa-user">
+
                     @if (session('userName'))
-                        <a href="profile"><small>{{session()->get('userName')}}</small></a> <a href="logout"><h6>logout</h6></a>
+                        <a class="nav-link" href="{{url('user/profile')}}"><small>{{session()->get('userName')}}</small></a> <a class="nav-link" href="logout"><h6>logout</h6></a>
                     @else
-                        <small>Sign in</small>
+                    <a class="nav-link" href="sign"><i class="fa-solid fa-user">Sign in</a>
                     @endif
-                </i></a>
+                </i>
               </li>
-    
+
             </ul>
           </div>
     </nav>
 
       @yield('content')
 
-    <footer class="footer-section">
-
+      <footer class="footer-section">
         <div class="container">
             <div class="footer-cta pt-5 pb-5">
                 <div class="row">
@@ -103,11 +103,11 @@
                             </div>
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">News</a></li>
-                                    <li><a href="#">Tours</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="{{url('user/home')}}">Home</a></li>
+                                    <li><a href="{{url('user/news')}}">News</a></li>
+                                    <li><a href="{{url('user/tour')}}">Tours</a></li>
+                                    <li><a href="{{url('user/about')}}">About</a></li>
+                                    <li><a href="{{url('user/contact')}}">Contact</a></li>
                                 </ul>
                             </div>
                             <div class="footer-social-icon">

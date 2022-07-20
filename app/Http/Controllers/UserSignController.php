@@ -25,6 +25,11 @@ class UserSignController extends Controller
             $email = $request->email;
             $user = Users::where('email',$email)->get();
             foreach ($user as $u){
+
+                if($u->active == 0){
+                    return redirect()->route('user.sign')->with('msg','Your account has been locked !!!');
+                }
+
                 if($u->password == $request->pass){
                     session(['id' => $u->user_id]);
                     session(['userName' => $u->user_name]);
@@ -36,7 +41,7 @@ class UserSignController extends Controller
                     return redirect()->route('user.sign')->withErrors($validated);
                 }
             }
-        
+
     }
 
     public function checkRegister(Request $request){

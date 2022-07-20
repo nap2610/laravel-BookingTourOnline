@@ -22,7 +22,7 @@
                         class="text-danger">{{ $d->tour->price1 }}.00$</small>/guess
                 </div>
                 <div class="col-sm-2 mt-1">
-                    <a href="{{ url('user/payment/$d->schedule_id') }}"><button class="btn btn-lg btn-danger mt-3"><small
+                    <a href="{{ url('user/payment/'.$d->schedule_id) }}"><button class="btn btn-lg btn-danger mt-3"><small
                                 class="px-1">Book now</small></button></a>
                     <a href="{{ url('user/contact') }}"><button class="btn btn-lg btn-outline-primary mt-1"><small
                                 class="px-3"> Contact</small></button></a>

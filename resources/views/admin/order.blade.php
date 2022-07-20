@@ -150,7 +150,11 @@
                     <td data-label="Control">
                         <div>
                             <a class="btn-confirm" href="control/changeOn/{{$off->book_id}}"><button>Confirm</button></a>
-                            <a class="btn-cancel" href="{{url('admin/control/deleteOrder')}}"><button>Delete</button></a>
+                            @if (session('role') == 0)
+
+                            @else
+                            <a class="btn-cancel" href="{{url('admin/control/deleteOrder/'.$off->book_id)}}"><button>Delete</button></a>
+                            @endif
                         </div>
                     </td>
                 </tr>

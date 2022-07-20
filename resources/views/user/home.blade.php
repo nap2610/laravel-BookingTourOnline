@@ -1,211 +1,211 @@
 @extends('userlayout')
 
 @section('content')
-    
-<div style="font-family:'Courier New', Courier, monospace ; font-weight: bold; font-size: 30px; text-indent: 30px;">KHÁM PHÁ SẢN PHẨM TOURVIET</div>
-<div class="home2">
-    <div class="l-container">
-      <div class="b-game-card">
-        <a href="">
-          <div class="b-game-card__cover">
-              <img src="{{asset('images/7vien.jpg')}}" alt="">
-              <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
-                <h5 class="card-titl" style="color:white">Đón hè tại Đà Nẵng-Hội An-Huế</h5>
-                </div>
-          </div>
-        </a>
-      </div>
-
-        <div class="b-game-card">
-          <a href="">
-            <div class="b-game-card__cover">
-                <img src="../pic/dl2.jpg" alt="">
-            </div>
-          </a>
-        </div>
-
-        <div class="b-game-card">
-          <a href="">
-            <div class="b-game-card__cover">
-                <img src="../pic/dl2.jpg" alt="">
-            </div>
-          </a>
-        </div>
-
-        <div class="b-game-card">
-          <a href="">
-            <div class="b-game-card__cover">
-                <img src="../pic/dl2.jpg" alt="">
-            </div>
-          </a>
-        </div>
-
-        <div class="b-game-card">
-          <a href="">
-            <div class="b-game-card__cover">
-                <img src="../pic/dl2.jpg" alt="">
-            </div>
-          </a>
-        </div>
-
-        
+    <div class="container mt-5">
+        <h3 style="color:rgb(36, 75, 111)" class="">EXPLORE TOUR</h3>
     </div>
-</div>
 
-<div style="font-family:'Courier New', Courier, monospace ; font-weight: bold; font-size: 30px; text-indent: 30px;">ƯU ĐÃI ĐẶC BIỆT</div>
+    <div class="home2">
+        <div class="l-container">
 
-<div class="team-boxed">
-    <div class="container">
-        <div class="row people">
-            <div class="col-md-6 col-lg-4 item">
-                <div class="box">
-                        <a href=""><img class="card-img-top" src="https://images.pexels.com/photos/12811978/pexels-photo-12811978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"></a>
-                        <p class="date">asd</p>
-                        <p class="place">asd</p>
-                        <a href=""><div class="name">asd</div></a>
-                        <div class="old-price">
-                            asd
-                            <div></div>
-                        </div>
-                        <div class="price-discount">
-                            asd
-                            <div></div>
-                            <div class="discount">asd</div>
-                        </div>
+            @foreach ($tour as $t)
+                <div class="b-game-card">
+                    <form action="{{url('user/tour')}}">
+                        <input type="hidden" name="name" value="{{$t->tour_name}}">
+                        <button>
+                            <div class="b-game-card__cover">
+                                <img src="{{ url('images/' . $t->img1) }}" alt="">
+                                <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+                                    <h6 class="card-titl" style="color:white"> {{ $t->tour_name }} </h6>
+                                </div>
+                            </div>
+                        </button>
+                    </form>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-4 item">
-                <div class="box">
-                    <a href=""><img class="card-img-top" src="image.png"></a>
-                    <p class="date">15/07/2022 - 5 ngày</p>
-                    <p class="place">Nơi khởi hành: TP. Hồ Chí Minh</p>
-                    <h3 class="name">Name</h3>
-                    <div class="old-price">
-                        Giá: <del>8,990,000₫</del>
-                    </div>
-                    <div class="price-discount">
-                      
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 item">
-                <div class="box">
-                    <a href=""><img class="card-img-top" src="../pic/dl2.jpg"></a>
-                    <p class="date">15/07/2022 - 5 ngày</p>
-                    <p class="place">Nơi khởi hành: TP. Hồ Chí Minh</p>
-                    <h3 class="name">Name</h3>
-                    <div class="old-price">
-                        Giá: <del>8,990,000₫</del>
-                    </div>
-                    <div class="price-discount">
-                        
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
-</div>
 
+    <<div class="container mt-5">
+        <h3 style="color:rgb(36, 75, 111)" class="">EXPLORE REGIONS</h3>
+        </div>
 
-<div style="font-family:'Courier New', Courier, monospace ; font-weight: bold; font-size: 30px; text-indent: 30px;">ĐIỂM ĐẾN YÊU THÍCH</div>
+        <div class="container mt-4 mb-5">
+            <div class="row">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-crossorigin="anonymous"></script>
-<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&subset=latin-ext" rel="stylesheet">
-
-
-
-<!-- Item slider-->
-<div class="container-fluid">
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="carousel carousel-showmanymoveone slide" id="itemslider">
-            <div class="carousel-inner">      
-                <div class="item active">
-                    <div class="col-xs-12 col-sm-6 col-md-2">
-                        <a href="#"><img
-                                src="https://images.pexels.com/photos/12811978/pexels-photo-12811978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                class="img-responsive center-block"></a>
-                        <h1 class="text-center">Hà Nội</h1>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="col-xs-12 col-sm-6 col-md-2">
-                        <a href="#"><img
-                            src="../pic/dl2.jpg"
-                            class="img-responsive center-block"></a>
-                            <h1 class="text-center">Hà Nội</h1>
+                @foreach ($tourB as $t)
+                    <div class="col-sm-4 ">
+                        <div class="card" style="width:350px">
+                            <div class="card-region">
+                                <img width="400px" height="200px" class="card-img-top" src="{{ url('images/' . $t->img1) }}"
+                                    alt="Card image">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <strong>{{ $t->tour_name }}</strong>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <small>Location start <strong> {{ $t->location_start }}</strong></small>
+                                    </div>
+                                    <div class="row mt-1">
+                                        <small>Duration <strong> {{ $t->duration }} days </strong> <span class="ml-4">
+                                                Transport </span> <strong> {{ $t->transport }} </strong> </small>
+                                    </div>
+                                    <div class="row">
+                                        <span>Region : <strong>Northern</strong></span>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-sm-5 mt-1">
+                                            <h5><strong class="text-danger">{{ $t->price1 }}.00$</strong></h5>
+                                        </div>
+                                        <div class="col-sm-2"></div>
+                                        <div class="col-sm-5">
+                                            <form action="{{ url('user/tour') }}">
+                                                <input type="hidden" name="region" value="{{ $t->region }}">
+                                                <button class="btn btn-outline-primary">View Detail</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                </div>
-
-                <div class="item">
-                    <div class="col-xs-12 col-sm-6 col-md-2">
-                        <a href="#"><img
-                            src="../pic/test.jpg"
-                            class="img-responsive center-block"></a>
-                            <h1 class="text-center">Hà Nội</h1>
                     </div>
-                </div>
+                @endforeach
 
-                <div class="item">
-                    <div class="col-xs-12 col-sm-6 col-md-2">
-                        <a href="#"><img
-                            src="../pic/dl2.jpg"
-                            class="img-responsive center-block"></a>
-                            <h1 class="text-center">Hà Nội</h1>
+                @foreach ($tourT as $t)
+                    <div class="col-sm-4 ">
+                        <div class="card" style="width:350px">
+                            <div class="card-region">
+                                <img width="400px" height="200px" class="card-img-top" src="{{ url('images/' . $t->img1) }}"
+                                    alt="Card image">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <strong>{{ $t->tour_name }}</strong>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <small>Location start <strong> {{ $t->location_start }}</strong></small>
+                                    </div>
+                                    <div class="row mt-1">
+                                        <small>Duration <strong> {{ $t->duration }} days </strong> <span class="ml-4">
+                                                Transport </span> <strong> {{ $t->transport }} </strong> </small>
+                                    </div>
+                                    <div class="row">
+                                        <span>Region : <strong>Central</strong></span>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-sm-5 mt-1">
+                                            <h5><strong class="text-danger">{{ $t->price1 }}.00$</strong></h5>
+                                        </div>
+                                        <div class="col-sm-2"></div>
+                                        <div class="col-sm-5">
+                                            <form action="{{ url('user/tour') }}">
+                                                <input type="hidden" name="region" value="{{ $t->region }}">
+                                                <button class="btn btn-outline-primary">View Detail</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
 
-                <div class="item">
-                    <div class="col-xs-12 col-sm-6 col-md-2">
-                        <a href="#"><img
-                            src="../pic/dl2.jpg"
-                            class="img-responsive center-block"></a>
-                            <h1 class="text-center">Hà Nội</h1>
+                @foreach ($tourN as $t)
+                    <div class="col-sm-4 ">
+                        <div class="card" style="width:350px">
+                            <div class="card-region">
+                                <img width="400px" height="200px" class="card-img-top" src="{{ url('images/' . $t->img1) }}"
+                                    alt="Card image">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <strong>{{ $t->tour_name }}</strong>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <small>Location start <strong> {{ $t->location_start }}</strong></small>
+                                    </div>
+                                    <div class="row mt-1">
+                                        <small>Duration <strong> {{ $t->duration }} days </strong> <span class="ml-4">
+                                                Transport </span> <strong> {{ $t->transport }} </strong> </small>
+                                    </div>
+                                    <div class="row">
+                                        <span>Region : <strong>South</strong></span>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-sm-5 mt-1">
+                                            <h5><strong class="text-danger">{{ $t->price1 }}.00$</strong></h5>
+                                        </div>
+                                        <div class="col-sm-2"></div>
+                                        <div class="col-sm-5">
+                                            <form action="{{ url('user/tour') }}">
+                                                <input type="hidden" name="region" value="{{ $t->region }}">
+                                                <button class="btn btn-outline-primary">View Detail</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
 
-                <div class="item">
-                    <div class="col-xs-12 col-sm-6 col-md-2">
-                        <a href="#"><img
-                            src="../pic/dl2.jpg"
-                            class="img-responsive center-block"></a>
-                            <h1 class="text-center">Hà Nội</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div id="slider-control">
-                <a class="left carousel-control" href="#itemslider" data-slide="prev"><img
-                        src="https://cdn0.iconfinder.com/data/icons/website-kit-2/512/icon_402-512.png"
-                        alt="Left" class="img-responsive"></a>
-                <a class="right carousel-control" href="#itemslider" data-slide="next"><img
-                        src="http://pixsector.com/cache/81183b13/avcc910c4ee5888b858fe.png" alt="Right"
-                        class="img-responsive"></a>
             </div>
         </div>
-    </div>
-</div>
-</div>
 
-@endsection
 
-@section('title')
-    Home
-@endsection
+        <div class="container mt-5 mb-5 pt-5">
+            <h3 style="color:rgb(36, 75, 111)" class="">EXPLORE PLACES</h3>
+        </div>
 
-@section('linkcss')
-    {{asset('css/user/home.css')}}
-@endsection
+        <div class="container mt-3 mb-5">
+            <div class="row">
+                @foreach ($place as $p)
+                    <div class="col-sm-3 card-place">
+                        <form action="{{url('user/tour')}}">
+                            <input type="hidden" name="end" value="{{$p->location_name}}">
+                            <button style="border: none; outline:none" href="" class="ml-4"> <img
+                                style="border:5px solid rgba(235, 230, 230, 0.591);border-radius: 10px" width="230px"
+                                height="170px" src="{{ url('images/' . $p->img) }}" alt=""> </button>
+                        </form>
+                        <div class="row">
+                            <h4 style="text-align:center"> {{ $p->location_name }} </h4>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
 
-@section('linkjs')
-    {{asset('js/user/home.js')}}
-@endsection
+        <div class="container mt-5 mb-3 pt-5">
+            <h3 style="color:rgb(36, 75, 111)" class="">HOT NEWS TOUR VIET</h3>
+        </div>
+
+        <div class="container mt-3 mb-5 news-block">
+           @foreach ($news as $n)
+           <div class="row mb-4 card-news">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3">
+                <a href="newsdetail/{{$n->news_id}}"> <img width="300px" src="{{url('images/'.$n->img1)}}" alt=""> </a>
+            </div>
+            <div class="col-sm-7 card-title">
+                <h4 class="text-danger">
+                    <a style="text-decoration: none" href="newsdetail/{{$n->news_id}}">{{$n->news_name}}</a>
+                </h4>
+                <small>{{$n->newstitle}}</small>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+           @endforeach
+        </div>
+
+    @endsection
+
+    @section('title')
+        Home
+    @endsection
+
+    @section('linkcss')
+        {{ asset('css/user/home.css') }}
+    @endsection
+
+    @section('linkjs')
+        {{ asset('js/user/home.js') }}
+    @endsection

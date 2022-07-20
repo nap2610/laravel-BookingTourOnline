@@ -38,6 +38,18 @@ class UserTourController extends Controller
             return view('user.tour', ['data' => $data, 'start' => $start, 'end' => $end]);
         }
 
+        if ($request->region) {
+            $data = DB::table('tour')
+                ->join('schedule', 'tour.tour_id', '=', 'schedule.tour_id')
+                ->select('tour.*', 'schedule.date_start', 'schedule.tour_code', 'schedule.schedule_id')
+                ->where('tour.region', $request->region)->get();
+
+            $start = Tour::select('location_start')->get();
+            $end = Location::select('location_name')->get();
+
+            return view('user.tour', ['data' => $data, 'start' => $start, 'end' => $end]);
+        }
+
         if ($request->one) {
             $data = DB::table('tour')
                 ->join('schedule', 'tour.tour_id', '=', 'schedule.tour_id')
@@ -100,7 +112,7 @@ class UserTourController extends Controller
             return view('user.tour', ['data' => $data, 'start' => $start, 'end' => $end]);
         }
 
-        
+
 
         if ($request->min && $request->max == "") {
             $data = DB::table('tour')
@@ -150,6 +162,21 @@ class UserTourController extends Controller
 
             return view('user.tour', ['data' => $data, 'start' => $start, 'end' => $end]);
         }
+
+        if ($request->name) {
+            $data = DB::table('tour')
+                ->join('schedule', 'tour.tour_id', '=', 'schedule.tour_id')
+                ->select('tour.*', 'schedule.date_start', 'schedule.tour_code', 'schedule.schedule_id')
+                ->where('tour.tour_name',$request->name)->get();
+
+            $start = Tour::select('location_start')->get();
+            $end = Location::select('location_name')->get();
+
+            return view('user.tour', ['data' => $data, 'start' => $start, 'end' => $end]);
+        }
+
+
+
 
         $data = DB::table('tour')
             ->join('schedule', 'tour.tour_id', '=', 'schedule.tour_id')

@@ -16,4 +16,9 @@ class Feedback extends Model
         return $this->belongsTo(Users::class,'user_id','user_id');
     }
 
+    public function schedule()
+    {
+        return $this->belongsTo(Booking::class,'schedule_id','schedule_id');
+    }
+
 }

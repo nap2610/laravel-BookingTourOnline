@@ -47,6 +47,9 @@ class AdminSignController extends Controller
             $email = $request->email;
             $admin = Admin::where('email',$email)->get();
             foreach ($admin as $pass){
+                if($pass->active == 0){
+                    return redirect()->route('admin.sign')->with('msg','Your account has been locked !!!');
+                }
                 if($pass->password == $request->password){
                     session(['adminName' => $pass->name]);
                     session(['role' => $pass->role]);
@@ -56,5 +59,10 @@ class AdminSignController extends Controller
                 }
             }
         }
+    }
+
+    public function logout(){
+        session()->flush();
+        return redirect()->route('admin.sign');
     }
 }

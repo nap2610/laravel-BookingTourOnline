@@ -44,6 +44,28 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <strong>REGIONS</strong>
+                </div>
+
+                <div class="row mt-2 mb-4">
+
+                        <div class="col-sm-8">
+                            <select class="form-select" form="regionform" name="region">
+                                <option hidden>Select Region</option>
+                                <option value="B">Northern</option>
+                                <option value="T">Central</option>
+                                <option value="N">South</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <form action="{{ url('user/tour') }}" id="regionform">
+                                <button class="btn btn-primary">Search</button>
+                            </form>
+                        </div>
+
+                </div>
+
                 <div class="row mb-1">
                     <strong>NUMBER OF DAYS</strong>
                 </div>
@@ -105,7 +127,7 @@
                     </div>
                     <div class="col-sm-3">
                         <select class="form-select" form="price" name="price">
-                            <option hidden>--- SELECT ---</option>
+                            <option hidden value="asc">--- SELECT ---</option>
                             <option value="asc">PRICE FROM LOW -> HIGH</option>
                             <option value="desc">PRICE FROM HIGH -> LOW</option>
                         </select>
@@ -150,7 +172,7 @@
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-sm-5"> <a
-                                                href="{{ url('user/payment/$d->schedule_id') }}"><button
+                                                href="{{ url('user/payment/'.$d->schedule_id) }}"><button
                                                     class="btn btn-danger btn-sm">Book now</button></a> </div>
                                         <div class="col-sm-2"></div>
                                         <div class="col-sm-5"> <a href="tourdetail/{{ $d->schedule_id }}"><button

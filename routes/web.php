@@ -14,6 +14,7 @@ use App\Http\Controllers\AdminPlacesController;
 use App\Http\Controllers\AdminFeedbackController;
 use App\Http\Controllers\AdminTourguideController;
 
+use App\Http\Controllers\UserContactController;
 use App\Http\Controllers\UserPaymentContronller;
 use App\Http\Controllers\UserTourdetailController;
 use App\Http\Controllers\UserTourController;
@@ -62,6 +63,8 @@ Route::prefix('/admin')->name('admin.')->group(function(){
 
     Route::get('/tourguide',[AdminTourguideController::class,'index'])->name('tourguide');
 
+    Route::get('logout',[AdminSignController::class,'logout']);
+
     Route::prefix('/control')->name('control.')->group(function(){
         Route::get('/insertTour',[AdminTourController::class,'insertTour'])->name('insertTour');
         Route::post('/insertTourPost',[AdminTourController::class,'insertTourPost'])->name('insertTourPost');
@@ -77,6 +80,8 @@ Route::prefix('/admin')->name('admin.')->group(function(){
 
         Route::get('changeOn/{id}',[AdminOrderController::class,'changeOn']);
         Route::get('changeOff/{id}',[AdminOrderController::class,'changeOff']);
+        Route::get('deleteOrder/{id}',[AdminOrderController::class,'deleteOrder']);
+
 
         Route::get('insertNews',[AdminNewsController::class,'insertNews']);
         Route::post('insertNewsPost',[AdminNewsController::class,'insertNewsPost']);
@@ -117,6 +122,7 @@ Route::prefix('/user')->name('user.')->group(function(){
 
     Route::get('/profile',[UserProfileController::class,'index'])->name('profile');
     Route::get('/saveProfile',[UserProfileController::class,'saveProfile']);
+    Route::get('/profile/deleteCmt/{id}',[UserProfileController::class,'deleteCmt']);
     Route::get('/logout',[UserProfileController::class,'logout']);
 
     Route::get('news',[UserNewsController::class,'index']);
@@ -125,13 +131,16 @@ Route::prefix('/user')->name('user.')->group(function(){
 
     Route::get('/about',[UserAboutController::class,'index']);
 
+    Route::get('/contact',[UserContactController::class,'index']);
+
     Route::get('/tour',[UserTourController::class,'index'])->name('tour');
 
     // Route::get('/tourdetail/{tourid}/{scheid}',[UserTourdetailController::class,'index']);
     Route::get('/tourdetail/{scheid}',[UserTourdetailController::class,'index']);
     Route::get('tour/detailtour/feedback',[UserTourdetailController::class,'feedback']);
 
-    Route::get('/payment/{scheid}',[UserPaymentContronller::class,'index']);
+    Route::get('/payment/{scheid}',[UserPaymentContronller::class,'index'])->name('payment');
+    Route::get('/paymentPost',[UserPaymentContronller::class,'paymentPost']);
 
 
 

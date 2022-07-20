@@ -33,10 +33,20 @@
                     <a href="order"><span><i class="fa-solid fa-cart-arrow-down"></i></span><span>Order</span></a>
                 </li>
                 <li>
+                    @if (session('role') == 0)
+                    <a hidden ><span><i class="fa-regular fa-house-lock"></i></span><span>Customer (Lock)</span></a>
+                    @else
                     <a href="customer"><span><i class="fa-solid fa-user-group"></i></span><span>Customer</span></a>
+                    @endif
                 </li>
                 <li>
+                    @if (session('role') == 0)
+                    <a ><span><i class="fa-regular fa-house-lock"></i></span><span>Staff (Lock)</span></a>
+
+                    @else
                     <a href="staff"><span><i class="fa-solid fa-user-gear"></i></span><span>Staff</span></a>
+
+                    @endif
                 </li>
                 <li>
                     <a href="news"><span><i class="fa-solid fa-newspaper"></i></span><span>News</span></a>
@@ -48,7 +58,11 @@
                     <a href="feedback"><span><i class="fa-solid fa-comments"></i></span><span>Feedback</span></a>
                 </li>
                 <li>
-                    <a href="tourguide"><span><i class="fa-solid fa-person-hiking"></i></span><span>Tour Guide</span></a>
+                   @if (session('role') == 0)
+                   <a ><span><i class="fa-regular fa-house-lock"></i></span><span>Tour Guide</span></a>
+                   @else
+                   <a href="tourguide"><span><i class="fa-solid fa-person-hiking"></i></span><span>Tour Guide</span></a>
+                   @endif
                 </li>
             </ul>
         </div>
@@ -68,7 +82,7 @@
                     alt="" width="40px" height="40px"></a>
                 <div>
                     <a href=""><h4> {{ session()->get('adminName') }} </h4></a>
-                    <small><a href="sign">Log out <span class="fa-solid fa-right-from-bracket" ></span></a></small>
+                    <small><a href="{{url('admin/logout')}}">Log out <span class="fa-solid fa-right-from-bracket" ></span></a></small>
                 </div>
             </div>
         </header>
