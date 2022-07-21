@@ -37,21 +37,21 @@
                 @foreach ($tourB as $t)
                     <div class="col-sm-4 ">
                         <div class="card" style="width:350px">
-                            <div class="card-region">
+                            <div class="card-region" style="height: 500px">
                                 <img width="400px" height="200px" class="card-img-top" src="{{ url('images/' . $t->img1) }}"
                                     alt="Card image">
                                 <div class="card-body">
                                     <div class="row">
                                         <strong>{{ $t->tour_name }}</strong>
                                     </div>
-                                    <div class="row mt-2">
+                                    <div class="row mt-3">
                                         <small>Location start <strong> {{ $t->location_start }}</strong></small>
                                     </div>
-                                    <div class="row mt-1">
+                                    <div class="row mt-2">
                                         <small>Duration <strong> {{ $t->duration }} days </strong> <span class="ml-4">
                                                 Transport </span> <strong> {{ $t->transport }} </strong> </small>
                                     </div>
-                                    <div class="row">
+                                    <div class="row mt-2">
                                         <span>Region : <strong>Northern</strong></span>
                                     </div>
                                     <div class="row mt-4">
@@ -59,7 +59,8 @@
                                             <h5><strong class="text-danger">{{ $t->price1 }}.00$</strong></h5>
                                         </div>
                                         <div class="col-sm-2"></div>
-                                        <div class="col-sm-5">
+
+                                        <div class="col-sm-5 mb-3">
                                             <form action="{{ url('user/tour') }}">
                                                 <input type="hidden" name="region" value="{{ $t->region }}">
                                                 <button class="btn btn-outline-primary">View Detail</button>
@@ -74,8 +75,8 @@
 
                 @foreach ($tourT as $t)
                     <div class="col-sm-4 ">
-                        <div class="card" style="width:350px">
-                            <div class="card-region">
+                        <div class="card" style="width:350px;">
+                            <div class="card-region" style="height: 500px">
                                 <img width="400px" height="200px" class="card-img-top" src="{{ url('images/' . $t->img1) }}"
                                     alt="Card image">
                                 <div class="card-body">
@@ -113,7 +114,7 @@
                 @foreach ($tourN as $t)
                     <div class="col-sm-4 ">
                         <div class="card" style="width:350px">
-                            <div class="card-region">
+                            <div class="card-region" style="height: 500px">
                                 <img width="400px" height="200px" class="card-img-top" src="{{ url('images/' . $t->img1) }}"
                                     alt="Card image">
                                 <div class="card-body">
@@ -130,12 +131,12 @@
                                     <div class="row">
                                         <span>Region : <strong>South</strong></span>
                                     </div>
-                                    <div class="row mt-4">
+                                    <div class="row mt-5" style="">
                                         <div class="col-sm-5 mt-1">
                                             <h5><strong class="text-danger">{{ $t->price1 }}.00$</strong></h5>
                                         </div>
                                         <div class="col-sm-2"></div>
-                                        <div class="col-sm-5">
+                                        <div class="col-sm-5" style="">
                                             <form action="{{ url('user/tour') }}">
                                                 <input type="hidden" name="region" value="{{ $t->region }}">
                                                 <button class="btn btn-outline-primary">View Detail</button>

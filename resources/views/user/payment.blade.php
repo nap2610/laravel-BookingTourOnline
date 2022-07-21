@@ -22,7 +22,7 @@
                             $date = strtotime($d->date_start);
                         @endphp
                         <small>Date Start</small> <strong>{{ date('d-m-y', $date) }}</strong> <br><br>
-                        <small>Duration </small> <strong>{{ $d->tour->duration }}</strong> <br><br>
+                        <small>Duration </small> <strong>{{ $d->tour->duration }}days</strong> <br><br>
                         <small>Place Start</small> <strong>{{ $d->tour->location_start }}</strong>
                     </div>
                 </div>

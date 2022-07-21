@@ -157,11 +157,10 @@
                 </div>
                 <div class="mb-3">
                     <label for="place">Place:</label>
-                    <select class="form-control" class="form-select" name="place">
-                        @foreach ($place as $p)
-                            <option value="{{ $p->location_name }}">{{ $p->location_name }}</option>
-                        @endforeach
-                    </select>
+                    <input type="text" class="form-control" name="place" value="{{old('place')}}">
+                    @error('place')
+                    <span style="color: red">{{ $message }}</span>
+                    @enderror
                 </div>
                 <br>
                 <button class="btn btn-primary"> INSERT </button>

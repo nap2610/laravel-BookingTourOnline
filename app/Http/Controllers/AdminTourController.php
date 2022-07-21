@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Location;
 use Illuminate\Support\Facades\DB;
 use App\Models\Tour;
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 
 class AdminTourController extends Controller
@@ -28,7 +29,7 @@ class AdminTourController extends Controller
 
     public function insertTourPost(Request $request){
          $validate = $request->validate([
-            'name' => 'required|unique:tour,tour_name',
+            'name' => 'required',
             'location' => 'required',
             'transport' => 'required',
             'duration' => 'required|numeric|min:1|max:30',
@@ -212,6 +213,13 @@ class AdminTourController extends Controller
     }
 
     public function deleteTour(Request $request){
+
+        $schedule = Schedule::all();
+        foreach ($schedule as $t) {
+            if($t->tour_id == $request->id){
+                return redirect()->route('admin.tour')->with('msg-warn','Cannot delete !!!');
+            }
+        }
         $tour = Tour::find($request->id);
         $tour->delete();
         return redirect()->route('admin.tour')->with('msg','Delete successfully !!!');

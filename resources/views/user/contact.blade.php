@@ -33,38 +33,56 @@
 
         <div class="col-md-8">
             <h1><img src="" width="80px">Would you like to contact us?</h1>
-            <form name="contact-form" action="" method="post" id="contact-form">
+            <form name="contact-form" action="contactPost">
                 <br>
                 <br>
 
 
             <h6> ~.~   If you want, please fill out the information below   ~.~ </h6>
+
+            @if (session('msg'))
+                <h2 style="text-align:center;color: green;background-color:rgba(165, 229, 165, 0.228) ">{{session('msg')}}</h2>
+            @endif
                 <h2>
                     <div class="form-group">
                         <label for="Name">Name</label>
-                        <input type="text" class="form-control" name="your_name" placeholder="Name" required>
+                        <input type="text" class="form-control" name="name" placeholder="Name"
+                        value="{{old('name')}}">
                     </div>
                 </h2>
+                @error('name')
+                    <span style="color: red">{{$message}}</span>
+                @enderror
                 <h3>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" name="your_email" placeholder="Email" required>
+                        <input type="text" class="form-control" name="email" placeholder="Email"  value="{{old('email')}}">
                     </div>
                 </h3>
+                @error('email')
+                <span style="color: red">{{$message}}</span>
+            @enderror
                 <h4>
                     <div class="form-group">
                         <label for="Phone">Phone</label>
-                        <input type="text" class="form-control" name="your_phone" placeholder="Phone" required>
+                        <input type="text" class="form-control" name="phone" placeholder="Phone"
+                        value="{{old('phone')}}">
                     </div>
                 </h4>
+                @error('phone')
+                <span style="color: red">{{$message}}</span>
+            @enderror
                 <h5>
                     <div class="form-group">
                         <label for="comments">Comments</label>
-                        <textarea name="comments" class="form-control" rows="8" cols="28" rows="5" placeholder="Comments"></textarea>
+                        <textarea name="comment" class="form-control" rows="8" cols="28" rows="5" placeholder="Comments">{{old('comment')}}</textarea>
                     </div>
                 </h5>
+                @error('comment')
+                <span style="color: red">{{$message}}</span>
+            @enderror
 
-                <h6><button type="submit" class="btn btn-primary" name="submit" value="Submit" id="submit_form">Submit</button></h6>
+                <h6><button type="submit" class="btn btn-primary" >Submit</button></h6>
                 <img src="image/loading.gif" id="loading-img">
             </form>
 

@@ -30,7 +30,7 @@ class UserTourController extends Controller
             $data = DB::table('tour')
                 ->join('schedule', 'tour.tour_id', '=', 'schedule.tour_id')
                 ->select('tour.*', 'schedule.date_start', 'schedule.tour_code', 'schedule.schedule_id')
-                ->where('tour.place', $request->end)->get();
+                ->where('tour.place','like', "%$request->end%")->get();
 
             $start = Tour::select('location_start')->get();
             $end = Location::select('location_name')->get();

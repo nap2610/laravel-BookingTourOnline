@@ -72,8 +72,8 @@
                     $start=strtotime($sche->date_start);
                     $end=strtotime($sche->date_end);
                     @endphp
-                    <td data-label="date start">{{date("d-m-Y H:i",$start)}}</td>
-                    <td data-label="date end">{{date("d-m-Y H:i",$end)}}</td>
+                    <td data-label="date start">{{date("d-m-Y ",$start)}}</td>
+                    <td data-label="date end">{{date("d-m-Y ",$end)}}</td>
                     <td data-label="Guide">{{$sche->tour_guide->name}}</td>
                     <td data-label="Control">
                         <div>

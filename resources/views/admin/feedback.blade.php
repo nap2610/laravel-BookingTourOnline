@@ -75,6 +75,45 @@
         </table>
     </div>
 
+    <h3>Contact</h3>
+    <div class="table-content">
+        <table class="container">
+            <thead>
+                <tr>
+                    <th>
+                        <h1>Name</h1>
+                    </th>
+                    <th>
+                        <h1>Email</h1>
+                    </th>
+                    <th>
+                        <h1>Phone</h1>
+                    </th>
+                    <th>
+                        <h1>Comment</h1>
+                    </th>
+                    <th>
+                        <h1>Date</h1>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($contact as $c)
+                <tr>
+                    <td data-label="Name">{{$c->name}}</td>
+                    <td data-label="Email">{{$c->email}}</td>
+                    <td data-label="Phone">{{$c->phone}}</td>
+                    <td data-label="Comment">{{$c->comment}}</td>
+                    @php
+                        $date = strtotime($c->date);
+                    @endphp
+                    <td data-label="Date">{{date('d-m-y',$date)}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
 </div>
 
 @endsection

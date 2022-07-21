@@ -131,7 +131,8 @@ Route::prefix('/user')->name('user.')->group(function(){
 
     Route::get('/about',[UserAboutController::class,'index']);
 
-    Route::get('/contact',[UserContactController::class,'index']);
+    Route::get('/contact',[UserContactController::class,'index'])->name('contact');
+    Route::get('/contactPost',[UserContactController::class,'contactPost']);
 
     Route::get('/tour',[UserTourController::class,'index'])->name('tour');
 

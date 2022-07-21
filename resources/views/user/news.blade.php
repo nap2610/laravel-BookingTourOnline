@@ -10,14 +10,14 @@
             @foreach ($new1 as $n1)
             <div class="col-sm-7">
                 <a href="newsdetail/{{$n1->news_id}}"><img style="border: 1px solid rgba(0, 0, 0, 0);border-radius:7px" width="700px" height="auto" src="{{asset('images/'.$n1->img1)}}" alt=""></a>
-                 <a style="text-decoration: none" href=""><h3 class="mt-3">{{$n1->news_name}}</h3></a>  
+                 <a style="text-decoration: none" href=""><h3 class="mt-3">{{$n1->news_name}}</h3></a>
                  @php
                  $date=strtotime($n1->news_date);
                  @endphp
                 <span>{{date("d-m-Y",$date)}}</span>
             </div>
             @endforeach
-            
+
             <div class="col-sm-5">
                 @foreach ($new2 as $n2)
                 <div class="row mb-2">
@@ -31,16 +31,16 @@
                 </div>
                 @endforeach
             </div>
-            
+
         </div>
 
         <div class="row">
             <div class="col-sm-11">
-                <h5>Cam nang du lich</h5>
+                <h5>Travel Guide</h5>
             </div>
             <div class="col-sm-1">
-                <a style="text-decoration: none" href="allnews"><h6>Xem tat ca</h6></a>
-            </div> 
+                <a style="text-decoration: none" href="allnews"><h6>View All</h6></a>
+            </div>
         </div>
         <div class="row">
             @foreach ($new3 as $n3)
@@ -64,5 +64,5 @@
 @endsection
 
 @section('linkjs')
-    
+
 @endsection

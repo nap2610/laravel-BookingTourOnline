@@ -85,20 +85,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-4">
-                    <div class="col-sm-6 ">
-                        <form action="{{ url('user/tour') }}">
-                            <input type="hidden" name="three" value="three">
-                            <button style="min-width: 130px" class="btn btn-outline-danger">7-14 days</button>
-                        </form>
-                    </div>
-                    <div class="col-sm-6 ">
-                        <form action="{{ url('user/tour') }}">
-                            <input type="hidden" name="four" value="four">
-                            <button style="min-width: 130px" class="btn btn-outline-danger">over 14 days</button>
-                        </form>
-                    </div>
-                </div>
+
 
                 <div class="row mb-2"> <strong>DATE START</strong> </div>
 
@@ -153,7 +140,7 @@
                                         @php
                                             $date = strtotime($d->date_start);
                                         @endphp
-                                        <p style="font-size: 14px">{{ date('d-m-Y', $date) }} - {{ $d->duration }}N
+                                        <p style="font-size: 14px">{{ date('d-m-Y', $date) }} - {{ $d->duration }} days
 
                                     </div>
                                     <div class="row">

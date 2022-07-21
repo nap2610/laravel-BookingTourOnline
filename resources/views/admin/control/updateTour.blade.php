@@ -29,6 +29,7 @@
             @foreach ($tour as $t)
                 <form action="{{ url('admin/control/updateTourPost') }}" enctype="multipart/form-data" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="id" value="{{$t->tour_id}}">
                     <div class="mb-3 mt-3">
                         <label for="name">Tour name</label>
                         <input type="text" class="form-control" name="name" value="{{ $t->tour_name }}">
@@ -160,12 +161,10 @@
                     </div>
                     <div class="mb-3">
                         <label for="place">Place:</label>
-                        <select class="form-control" class="form-select" name="place">
-                            <option hidden value="{{ $t->place }}">{{ $t->place }}</option>
-                            @foreach ($place as $p)
-                                <option value="{{ $p->location_name }}">{{ $p->location_name }}</option>
-                            @endforeach
-                        </select>
+                        <input type="text" class="form-control" name="place" value="{{$t->place}}">
+                        @error('place')
+                        <span style="color: red">{{ $message }}</span>
+                        @enderror
                     </div>
                     <br>
                     <button class="btn btn-success"> UPDATE </button>

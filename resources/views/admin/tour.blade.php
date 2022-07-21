@@ -25,6 +25,12 @@
     </div>
     @endif
 
+    @if (session('msg-warn'))
+    <div class="msg-block">
+        <span class="msg-warn">{{ session('msg-warn') }}</span>
+    </div>
+    @endif
+
 
     <div class="table-content">
         <table class="container">
@@ -40,7 +46,10 @@
                         <h1>Duration</h1>
                     </th>
                     <th>
-                        <h1>Place Start</h1>
+                        <h1>Point</h1>
+                    </th>
+                    <th>
+                        <h1>Destination</h1>
                     </th>
                     <th>
                         <h1>Price</h1>
@@ -57,6 +66,7 @@
                     <td data-label="Name">{{$t->tour_name}}</td>
                     <td data-label="Duration">{{$t->duration}}</td>
                     <td data-label="Place start">{{$t->location_start}}</td>
+                    <td data-label="Place start">{{$t->place}}</td>
                     <td data-label="Price">{{$t->price1}}$</td>
                     <td data-label="Control">
                     <div>

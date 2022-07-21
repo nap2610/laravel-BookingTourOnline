@@ -78,6 +78,19 @@
     border-radius: 2%;
 }
 
+.msg-warn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background-color: rgba(241, 188, 188, 0.689);
+    color: rgb(161, 16, 16);
+    height: 2.5rem;
+    width: 40%;
+    font-size: 1.3rem;
+    border-radius: 2%;
+}
+
 .table-content{
     margin-top: 2rem;
 }
@@ -179,7 +192,7 @@ tbody a:nth-child(2) button:hover{
 
 
 @media only screen and (max-width: 1200px){
-   
+
 }
 
 @media only screen and (max-width: 960px) {
@@ -191,7 +204,7 @@ tbody a:nth-child(2) button:hover{
         display: block;
         width: 100%;
     }
-    
+
     table tr{
         margin-bottom: 2rem;
     }
@@ -220,6 +233,6 @@ tbody a:nth-child(2) button:hover{
 }
 
 @media only screen and (max-width:560px) {
-   
+
 }
 
