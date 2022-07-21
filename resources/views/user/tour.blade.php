@@ -13,9 +13,10 @@
                     <div class="col-sm-8">
                         <select class="form-select" form="start" name="start">
                             <option  hidden> Select Point</option>
-                            @foreach ($start as $s)
-                                <option value="{{ $s->location_start }}">{{ $s->location_start }}</option>
-                            @endforeach
+                            <option value="Nha Trang">Nha Trang</option>
+                            <option value="Da Nang">Da Nang</option>
+                            <option value="Ho Chi Minh">Ho Chi Minh</option>
+                            <option value="Ha Noi">Ha Noi</option>
                         </select>
                     </div>
                     <div class="col-sm-4">
