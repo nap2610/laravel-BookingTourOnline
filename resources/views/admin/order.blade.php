@@ -43,7 +43,7 @@
             <thead>
                 <tr>
                     <th>
-                        <h1>Schedule id</h1>
+                        <h1>Id</h1>
                     </th>
                     <th>
                         <h1>Tour code</h1>
@@ -53,6 +53,9 @@
                     </th>
                     <th>
                         <h1>Email</h1>
+                    </th>
+                    <th>
+                        <h1>Phone</h1>
                     </th>
                     <th>
                         <h1>Date book</h1>
@@ -79,6 +82,7 @@
                     <td data-label="Tour code">{{$on->tour_code}}</td>
                     <td data-label="User name">{{$on->user_name}}</td>
                     <td data-label="Email">{{$on->email}}</td>
+                    <td data-label="Email">{{$on->phone}}</td>
                     @php
                     $d=strtotime($on->date_book);
                     @endphp
@@ -104,7 +108,7 @@
             <thead>
                 <tr>
                     <th>
-                        <h1>Schedule id</h1>
+                        <h1>Id</h1>
                     </th>
                     <th>
                         <h1>Tour code</h1>
@@ -114,6 +118,9 @@
                     </th>
                     <th>
                         <h1>Email</h1>
+                    </th>
+                    <th>
+                        <h1>Phone</h1>
                     </th>
                     <th>
                         <h1>Date book</h1>
@@ -140,6 +147,7 @@
                     <td data-label="Tour code">{{$off->tour_code}}</td>
                     <td data-label="user name">{{$off->user_name}}</td>
                     <td data-label="Email">{{$off->email}}</td>
+                    <td data-label="Phone">{{$off->phone}}</td>
                     @php
                     $d=strtotime($off->date_book);
                     @endphp

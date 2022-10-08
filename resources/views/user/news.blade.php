@@ -10,7 +10,7 @@
             @foreach ($new1 as $n1)
             <div class="col-sm-7">
                 <a href="newsdetail/{{$n1->news_id}}"><img style="border: 1px solid rgba(0, 0, 0, 0);border-radius:7px" width="700px" height="auto" src="{{asset('images/'.$n1->img1)}}" alt=""></a>
-                 <a style="text-decoration: none" href=""><h3 class="mt-3">{{$n1->news_name}}</h3></a>
+                 <a style="text-decoration: none" href="newsdetail/{{$n1->news_id}}"><h3 class="mt-3">{{$n1->news_name}}</h3></a>
                  @php
                  $date=strtotime($n1->news_date);
                  @endphp
@@ -25,7 +25,7 @@
                         <a href="newsdetail/{{$n2->news_id}}"><img style="border: 1px solid rgba(0, 0, 0, 0);border-radius:7px" width="250px" height="150px" src="{{asset('images/'.$n2->img1)}}" alt=""></a>
                     </div>
                     <div class="col-sm-6">
-                        <a style="text-decoration: none" href="newsdetail"><h5 class="">{{$n2->news_name}}</h5></a>
+                        <a style="text-decoration: none" href="newsdetail/{{$n1->news_id}}"><h5 class="">{{$n2->news_name}}</h5></a>
                         <small>{{$n2->news_date}}</small>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
             @foreach ($new3 as $n3)
             <div class="col-sm-4">
                 <a href="newsdetail/{{$n3->news_id}}"><img style="border: 1px solid rgba(0, 0, 0, 0);border-radius:7px" width="400px" height="auto" src="{{asset('images/'.$n3->img1)}}" alt=""></a>
-                <a style="text-decoration: none" href="newsdetail"><h5 class=" mt-2">{{$n3->news_name}}</h5></a>
+                <a style="text-decoration: none" href="newsdetail/{{$n1->news_id}}"><h5 class=" mt-2">{{$n3->news_name}}</h5></a>
                 <small>{{$n3->news_date}}</small>
             </div>
             @endforeach

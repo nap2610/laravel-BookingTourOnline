@@ -91,7 +91,7 @@ input {
 .container {
   background-color: #fff;
   border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
       0 10px 10px rgba(0,0,0,0.22);
   position: relative;
   overflow: hidden;
@@ -123,7 +123,7 @@ input {
     opacity: 0;
     z-index: 1;
   }
-  
+
   50%, 100% {
     opacity: 1;
     z-index: 5;
@@ -197,22 +197,4 @@ input {
   transform: translateX(20%);
 }
 
-.social-container {
-  margin: 20px 0;
-}
 
-.social-container a {
-  border: 1px solid #DDDDDD;
-  border-radius: 50%;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 5px;
-  height: 40px;
-  width: 40px;
-}
-
-.social-container a:hover{
-  background-color: #d7d7d7;
-  cursor: pointer;
-}
