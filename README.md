@@ -1,12 +1,7 @@
-Teach used: PHP - Laravel - HTML/CSS/JS - jQuery - Bootstrap
-USER
-username: user@gmail.com
-password: 123456
-ADMIN
-username: nguyenanhphu@gmail.com
-password: 123456
+Teach used: <b>PHP - Laravel - Blade - HTML/CSS/JS - jQuery - Bootstrap</b>
 
-Welcome to Tour Vier, your ultimate destination for unforgettable travel experiences! We specialize in crafting extraordinary journeys that cater to every traveler's wanderlust, offering an array of meticulously curated tours and excursions to destinations around the globe.
+
+Welcome to Tour Viet, your ultimate destination for unforgettable travel experiences! We specialize in crafting extraordinary journeys that cater to every traveler's wanderlust, offering an array of meticulously curated tours and excursions to destinations around the globe.
 
 At Tour Viet, we understand that every traveler is unique, which is why we offer a diverse range of tour options to suit every taste and preference. Whether you're seeking adventure in exotic locales, cultural immersion in historic cities, or serene escapes to breathtaking natural wonders, we have the perfect itinerary waiting for you.
 
@@ -16,7 +11,8 @@ With user-friendly booking tools and flexible options, planning your dream vacat
 
 Join us on a journey of discovery and exploration, where every moment is infused with wonder and excitement. Whether you're scaling towering peaks, wandering through ancient ruins, or savoring the flavors of local cuisine, let Tour Viet be your trusted companion on your next unforgettable adventure.
 
-Book your dream tour today and embark on a voyage of a lifetime with Tour Viet. Adventure awaits!
+Book your dream tour today and embark on a voyage of a lifetime with Tour Viet. Adventure awaits! </br> </br>
+
 
 
 
