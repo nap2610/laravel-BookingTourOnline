@@ -3,7 +3,7 @@
 <b>Back end:</b> PHP - Laravel - Blade - Restful API </br>
 <b>Database:</b> MySQL, Eloquent ORM </br></br>
 
-Welcome to Tour Viet, your ultimate destination for unforgettable travel experiences! We specialize in crafting extraordinary journeys that cater to every traveler's wanderlust, offering an array of meticulously curated tours and excursions to destinations around the globe.
+Welcome to <h6>Tour Viet</h6>, your ultimate destination for unforgettable travel experiences! We specialize in crafting extraordinary journeys that cater to every traveler's wanderlust, offering an array of meticulously curated tours and excursions to destinations around the globe.
 
 At Tour Viet, we understand that every traveler is unique, which is why we offer a diverse range of tour options to suit every taste and preference. Whether you're seeking adventure in exotic locales, cultural immersion in historic cities, or serene escapes to breathtaking natural wonders, we have the perfect itinerary waiting for you.
 
@@ -15,8 +15,8 @@ Join us on a journey of discovery and exploration, where every moment is infused
 
 Book your dream tour today and embark on a voyage of a lifetime with Tour Viet. Adventure awaits! </br> </br>
 
-
-
+<h3>Screen short</h3>
+...
 
 
 
