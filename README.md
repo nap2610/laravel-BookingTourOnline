@@ -1,5 +1,7 @@
-Teach used: <b>PHP - Laravel - Blade - HTML/CSS/JS - jQuery - Bootstrap</b>
-
+<h3>Tech used</h3>
+<b>Front end:</b> HTML/CSS/JS - jQuery - Bootstrap </br>
+<b>Back end:</b> PHP - Laravel - Blade - Restful API </br>
+<b>Database:</b> MySQL, Eloquent ORM </br></br>
 
 Welcome to Tour Viet, your ultimate destination for unforgettable travel experiences! We specialize in crafting extraordinary journeys that cater to every traveler's wanderlust, offering an array of meticulously curated tours and excursions to destinations around the globe.
 
